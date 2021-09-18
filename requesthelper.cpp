@@ -1,6 +1,5 @@
 #include "requesthelper.h"
-#include <QByteArray>
-#include <QTextStream>
+
 #ifdef Q_OS_WINDOWS
 
 #include <urlmon.h>
@@ -124,8 +123,8 @@ void RequestHelper::request()
 
     QObject::connect(currentReply_.get(), &QNetworkReply::finished, this, [&] {
         setActive(false);
-        QVariant status_code = currentReply_->attribute(QNetworkRequest::HttpStatusCodeAttribute);
-        setSuccess(processHttpStatus(status_code));
+        QVariant statusCode = currentReply_->attribute(QNetworkRequest::HttpStatusCodeAttribute);
+        setSuccess(processHttpStatus(statusCode));
     });
 
     QObject::connect(currentReply_.get(), &QNetworkReply::finished, this,

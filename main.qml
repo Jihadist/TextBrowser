@@ -55,6 +55,7 @@ Window {
                     anchors.margins: 2 * row.marginSize
 
                     inputMethodHints: Qt.ImhUrlCharactersOnly
+                    selectByMouse: true
                     Component.onCompleted: {
                         textInputUrl.text = "Enter url here"
                     }

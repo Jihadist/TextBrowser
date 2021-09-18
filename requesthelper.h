@@ -1,13 +1,8 @@
 #pragma once
-#include <QDebug>
-#include <QNetworkAccessManager>
-#include <QObject>
-#include <QString>
-#include <QTimer>
-#include <QUrl>
-#include <QtNetwork>
-#include <memory>
 
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <memory>
 namespace QtHelper {
 struct deleteLaterDeletor {
     void operator()(QObject* object) const
@@ -39,7 +34,6 @@ public:
     const QByteArray& payload() const;
 
     bool success() const;
-
     bool active() const;
 
 signals:
